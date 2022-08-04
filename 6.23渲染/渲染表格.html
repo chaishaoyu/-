@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .box {
+        width: 800px;
+        margin: 50px auto;
+    }
+
+    table {
+        width: 800px;
+    }
+
+    td {
+        width: 120px;
+        height: 70px;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div class="box">
+        <table border="1" cellspacing="0">
+            <thead>
+                <td>ID</td>
+                <td>名字</td>
+                <td>数学成绩</td>
+                <td>英语成绩</td>
+                <td>语文成绩</td>
+                <td>历史成绩</td>
+                <td>删除</td>
+            </thead>
+            <tbody id="tb"></tbody>
+        </table>
+    </div>
+</body>
+<script>
+    let arr = [{ id: 1910001, name: 'A', chengji: { shuxue: 100, eng: 99, yuwen: 98, lishi: 95 } },
+    { id: 1910002, name: 'B', chengji: { shuxue: 50, eng: 30, yuwen: 60, lishi: 35 } },
+    { id: 1910003, name: 'C', chengji: { shuxue: 100, eng: 85, yuwen: 96, lishi: 95 } }]
+    // console.log(arr);
+    //渲染
+    let biao = ''
+    function xuan() {
+        for (let i = 0; i < arr.length; i++) {
+            biao += '<tr>'
+            for (item in arr[i]) {
+                if (typeof arr[i][item] == 'object') {
+                    for (items in arr[i][item]) {
+                        // console.log(arr[i][item][items]);
+                        biao += `<td>${arr[i][item][items]}</td>`
+                    }
+                } else {
+                    biao += `<td>${arr[i][item]}</td>`
+
+                }
+            }
+            biao += '<td><button class="shan">删除</button></td>'
+            biao += '</tr>'
+            console.log(biao);
+            tb.innerHTML = biao
+        }
+        shan()
+    }
+    xuan()
+    function shan() {
+        let btn = document.querySelectorAll('.shan')
+        //删除
+        for (let i = 0; i < btn.length; i++) {
+            btn[i].onclick = function () {
+                // console.log(i);
+                arr.splice(i, 1)
+                console.log(arr);
+                tb.innerHTML = null
+                biao = ''
+                xuan()
+            }
+        }
+    }
+    shan()
+
+</script>
+
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .box {
+        width: 400px;
+        height: 600px;
+        /* border: 1px solid black; */
+        margin: 50px auto;
+        background-color: rgb(238, 238, 237);
+        box-shadow: 0px 0px 10px black;
+    }
+
+    .xianshi {
+        height: 30%;
+        background-color: rgb(189, 189, 189);
+        text-align: right;
+        /* line-height: 180px; */
+        font-size: 60px;
+        padding-right: 20px;
+        font-weight: 900;
+        overflow: hidden;
+    }
+
+    .xianshi2 {
+        height: 70%;
+
+    }
+
+    .xianshi1 {
+        height: 30%;
+        font-size: 40px;
+        color: rgb(89, 88, 88);
+        line-height: 54px;
+        font-size: 20px;
+        font-weight: 400;
+    }
+
+    .shuru {
+        height: 70%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .zi {
+        width: 24%;
+        height: 19%;
+        background-color: rgb(226, 228, 228);
+        margin: 2px;
+        font-size: 22px;
+        font-weight: 600;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <div class="box">
+        <div class="xianshi" id="xianshi">
+            <div class="xianshi1" id="xianshi1"></div>
+            <div class="xianshi2" id="xianshi2">0</div>
+        </div>
+        <div class="shuru" id="shuru">
+            <div class="zi" id="qingchu">清除</div>
+            <div class="zi" id="shanchu">退格</div>
+            <div class="zi">%</div>
+            <div class="zi">/</div>
+            <div class="zi">7</div>
+            <div class="zi">8</div>
+            <div class="zi">9</div>
+            <div class="zi">*</div>
+            <div class="zi">4</div>
+            <div class="zi">5</div>
+            <div class="zi">6</div>
+            <div class="zi">-</div>
+            <div class="zi">1</div>
+            <div class="zi">2</div>
+            <div class="zi">3</div>
+            <div class="zi">+</div>
+            <div class="zi">**</div>
+            <div class="zi">0</div>
+            <div class="zi">.</div>
+            <div class="zi" id="dengyu">=</div>
+        </div>
+    </div>
+</body>
+
+
+<script>
+    let he = ''
+    let xia = ''
+    shuru.onmousedown = function (e) {
+        let t = e.target
+        if (t.innerHTML != '=' && t.innerHTML !== '清除' && t.innerHTML !== '退格' && t.className == 'zi') {
+
+            he += t.innerHTML
+            xianshi1.innerHTML = he
+        }
+        if (t.innerHTML == '=' && t.innerHTML !== '清除' && t.innerHTML !== '退格') {
+            console.log(he);
+            he = eval(he)
+            he = Math.round(he * 1000) / 1000
+            xianshi1.innerHTML = he
+            xianshi2.innerHTML = he
+        }
+
+        if (!isNaN(t.innerHTML) && t.innerHTML !== '清除' && t.innerHTML !== '退格' || t.innerHTML == '.') {
+            console.log(t.innerHTML);
+            xia += t.innerHTML
+            xianshi2.innerHTML = xia
+        } else {
+            xia = ''
+        }
+        if (t.innerHTML == '退格') {
+            he = he + ''
+            he = he.substr(0, he.length - 1)
+            xianshi1.innerHTML = he
+            xianshi2.innerHTML = he
+        }
+        if (t.innerHTML == '清除') {
+            he = 0
+            xianshi1.innerHTML = ''
+            xianshi2.innerHTML = '0'
+            // zi[0].style.background = 'rgb(192, 194, 194)'
+        }
+        if (t.className == 'zi') {
+            t.style.background = 'rgb(192, 194, 194)'
+        }
+    }
+    shuru.onmouseup = function (e) {
+        let t = e.target
+        t.style.background = ''
+
+    }
+    //键盘
+    let zi = document.querySelectorAll('.zi')
+    window.onkeydown = function (e) {
+        console.log(e.key);
+        zi.forEach(item => {
+            if (item.innerHTML == e.key) {
+                item.style.background = 'rgb(192, 194, 194)'
+            }
+        })
+        if (e.key != 'Enter' && !isNaN(e.key) || e.key == '+' || e.key == '-' || e.key == '*' || e.key == '/' || e.key == '%' || e.key == '**' || e.key == '.') {
+            he += e.key
+            xianshi1.innerHTML = he
+        }
+        if (e.key == 'Enter' && e.key !== '清除' && e.key !== '退格') {
+            console.log(he);
+            he = eval(he)
+            he = Math.round(he * 1000) / 1000
+            xianshi1.innerHTML = he
+            xianshi2.innerHTML = he
+        }
+        if (!isNaN(e.key) || e.key == '.') {
+            // console.log(t.innerHTML);
+            xia += e.key
+            xianshi2.innerHTML = xia
+        } else {
+            xia = ''
+        }
+        if (e.key == 'Backspace') {
+            he = he + ''
+            he = he.substr(0, he.length - 1)
+            xianshi1.innerHTML = he
+            xianshi2.innerHTML = he
+            zi[1].style.background = 'rgb(192, 194, 194)'
+        }
+        if (e.key == 'Escape') {
+            he = 0
+            xianshi1.innerHTML = ''
+            xianshi2.innerHTML = '0'
+            zi[0].style.background = 'rgb(192, 194, 194)'
+        }
+    }
+    window.onkeyup = function (e) {
+        zi.forEach(item => {
+            item.style.background = ''
+        })
+    }
+</script>
+
+</html>

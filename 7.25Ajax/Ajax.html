@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //1.创建一个XMLHttpRequest 请求
+    let xhr = new XMLHttpRequest()
+    //2.设置请求的方式 xhr.open(请求方式,请求地址) 
+    xhr.open("get", "D:\phpStudy\WWW\weibo.sql")
+    //发送请求
+    xhr.send()
+    //响应数据  xhr.readyState 0 1 2 3 4     4==成功
+    //xhr.status  服务器返回的状态码 1 2 3 4  5   2开头==成功
+    xhr.onreadystatechange = function () {
+        //相应数据  响应数据都成功再拿里面的数据
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            console.log(xhr.response); //得到的数据
+        }
+    }
+</script>
+
+</html>

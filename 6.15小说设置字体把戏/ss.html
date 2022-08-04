@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>codefun</title>
+    <link rel="stylesheet" href="../../index.css" />
+    <link rel="stylesheet" href="./shouye.css" />
+    <script type="text/javascript" src="./shouye.js"></script>
+</head>
+
+<style>
+    /************************************************************
+** 请将全局样式拷贝到项目的全局 CSS 文件或者当前页面的顶部 **
+** 否则页面将无法正常显示                                  **
+************************************************************/
+
+    html {
+        font-size: 16px;
+    }
+
+    body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+            'Droid Sans', 'Helvetica Neue', 'Microsoft Yahei', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    * {
+        box-sizing: border-box;
+        flex-shrink: 0;
+    }
+
+    .flex-row {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .flex-col {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .justify-start {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .justify-center {
+        display: flex;
+        justify-content: center;
+    }
+
+    .justify-end {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .justify-evenly {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .justify-around {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .justify-between {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .items-start {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .items-center {
+        display: flex;
+        align-items: center;
+    }
+
+    .items-end {
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .equal-division-item {
+        flex: 1 1 5.25rem;
+        padding: 0.19rem 0 0.31rem;
+    }
+
+    .image_4 {
+        border-radius: 50%;
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .list-item {
+        padding: 0.75rem 0.063rem 0.97rem;
+    }
+
+    .image_9 {
+        border-radius: 0.25rem;
+        width: 6.25rem;
+        height: 6.25rem;
+    }
+
+    .group_9 {
+        margin-left: 1rem;
+        flex: 1 1 auto;
+    }
+
+    .group_11 {
+        margin-top: 1.81rem;
+    }
+
+    .text_8 {
+        color: #000000;
+        font-size: 0.94rem;
+        font-family: 'PingFangSC-Regular';
+        line-height: 1.31rem;
+    }
+
+    .text_10 {
+        margin-top: 0.5rem;
+        color: #888888;
+        font-size: 0.81rem;
+        font-family: 'PingFangSC-Regular';
+        line-height: 1.13rem;
+    }
+
+    .text_12 {
+        margin-right: 0.19rem;
+        color: #000000;
+        font-size: 1.06rem;
+        font-family: 'PingFangSC-Regular';
+        line-height: 1.5rem;
+    }
+
+    .text_14 {
+        margin: 0.25rem 0 0.13rem;
+        color: #888888;
+        font-size: 0.81rem;
+        font-family: 'PingFangSC-Regular';
+        line-height: 1.13rem;
+    }
+
+    .text_2 {
+        margin-top: 0.38rem;
+        color: #000000;
+        font-size: 0.81rem;
+        font-family: 'PingFangSC-Regular';
+        line-height: 1.13rem;
+    }
+
+    .page {
+        background-color: #ffffffff;
+        width: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+        height: 100%;
+    }
+
+    .header {
+        padding: 0.91rem 0.88rem 0.38rem 2.19rem;
+        height: 5.31rem;
+    }
+
+    .group_2 {
+        padding: 0.69rem 1.19rem 1.34rem;
+        flex: 1 1 auto;
+        overflow-y: auto;
+    }
+
+    .text_1 {
+        margin-top: 1.34rem;
+        align-self: center;
+        color: #000000;
+        font-size: 1.13rem;
+        font-family: 'PingFangSC-Semibold';
+        font-weight: 600;
+        line-height: 1.56rem;
+    }
+
+    .image_3 {
+        border-radius: 0.5rem;
+        width: 20.94rem;
+        height: 9.38rem;
+    }
+
+    .equal-division {
+        margin-top: 1.69rem;
+    }
+
+    .group_7 {
+        margin-top: 1.44rem;
+    }
+
+    .text {
+        color: #000000;
+        font-size: 0.94rem;
+        font-family: 'Helvetica';
+        line-height: 1.13rem;
+        letter-spacing: -0.019rem;
+    }
+
+    .group_1 {
+        margin: 0.19rem 0 0.22rem;
+    }
+
+    .text_7 {
+        align-self: flex-start;
+        color: #000000;
+        font-size: 0.94rem;
+        font-family: 'PingFangSC-Semibold';
+        font-weight: 600;
+        line-height: 1.31rem;
+    }
+
+    .image {
+        width: 1.06rem;
+        height: 0.69rem;
+    }
+
+    .image_1 {
+        margin-left: 0.28rem;
+        width: 1rem;
+        height: 0.69rem;
+    }
+
+    .image_2 {
+        margin-left: 0.28rem;
+        width: 1.53rem;
+        height: 0.72rem;
+    }
+
+    .group_12 {
+        padding: 1.03rem 0.063rem 0.97rem;
+    }
+
+    .group_14 {
+        padding: 1.03rem 0.063rem 0.97rem;
+    }
+
+    .list-item:not(:last-of-type) {
+        border-bottom: solid 0.063rem #dddddd;
+    }
+</style>
+
+<body>
+    <div class="flex-col page">
+        <div class="flex-col header">
+            <div class="justify-between">
+                <span class="text">9:41</span>
+                <div class="flex-row group_1">
+                    <img src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/5eedc9543259190011441867/60c321886d32e90012f09dc4/16234009834185347774.png"
+                        class="image" />
+                    <img src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/5eedc9543259190011441867/60c321886d32e90012f09dc4/16234009834150509331.png"
+                        class="image_1" />
+                    <img src="https://project-user-resource-1256085488.cos.ap-guangzhou.myqcloud.com/60c325b4767e240013341755/60c321886d32e90012f09dc4/16551312074193639540.png"
+                        class="image_2" />
+                </div>
+            </div>
+            <span class="text_1">FF办公空间</span>
+        </div>
+        <div class="flex-col group_2">
+            <img src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/5eedc9543259190011441867/60c321886d32e90012f09dc4/16234010093791214053.png"
+                class="image_3" />
+            <div class="flex-row equal-division">
+                <div class="flex-col items-center equal-division-item">
+                    <img src="https://project-user-resource-1256085488.cos.ap-guangzhou.myqcloud.com/60c325b4767e240013341755/60c321886d32e90012f09dc4/16551312356205125204.png"
+                        class="image_4" />
+                    <span class="text_2">地图找楼</span>
+                </div>
+                <div class="flex-col items-center equal-division-item">
+                    <img src="https://project-user-resource-1256085488.cos.ap-guangzhou.myqcloud.com/60c325b4767e240013341755/60c321886d32e90012f09dc4/16551312356216119962.png"
+                        class="image_4" />
+                    <span class="text_2">核心商圈</span>
+                </div>
+                <div class="flex-col items-center equal-division-item">
+                    <img src="https://project-user-resource-1256085488.cos.ap-guangzhou.myqcloud.com/60c325b4767e240013341755/60c321886d32e90012f09dc4/16551312356222324005.png"
+                        class="image_4" />
+                    <span class="text_2">全景参观</span>
+                </div>
+                <div class="flex-col items-center equal-division-item">
+                    <img src="https://project-user-resource-1256085488.cos.ap-guangzhou.myqcloud.com/60c325b4767e240013341755/60c321886d32e90012f09dc4/16551312356230545511.png"
+                        class="image_4" />
+                    <span class="text_2">咨询热线</span>
+                </div>
+            </div>
+            <div class="flex-col group_7">
+                <span class="text_7">热推空间</span>
+                <div class="flex-col">
+                    <div class="flex-row list-item">
+                        <img src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/5eedc9543259190011441867/60c321886d32e90012f09dc4/16234010093853079242.png"
+                            class="image_9" />
+                        <div class="flex-col group_9">
+                            <div class="flex-col items-start">
+                                <span class="text_8">维新软件科学园</span>
+                                <span class="text_10">深圳市南山区中心路3331号</span>
+                            </div>
+                            <div class="justify-end group_11">
+                                <span class="text_12">¥1,870</span>
+                                <span class="text_14">起/工位/月</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-row list-item group_12">
+                        <img src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/5eedc9543259190011441867/60c321886d32e90012f09dc4/16234010093836713715.png"
+                            class="image_9" />
+                        <div class="flex-col group_9">
+                            <div class="flex-col items-start">
+                                <span class="text_8">中集大厦</span>
+                                <span class="text_10">深圳市南山区高新南九道9号</span>
+                            </div>
+                            <div class="justify-end group_11">
+                                <span class="text_12">¥2,240</span>
+                                <span class="text_14">起/工位/月</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-row list-item group_14">
+                        <img src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/5eedc9543259190011441867/60c321886d32e90012f09dc4/16234010093817997494.png"
+                            class="image_9" />
+                        <div class="flex-col group_9">
+                            <div class="flex-col items-start">
+                                <span class="text_8">深业大厦</span>
+                                <span class="text_10">深圳市福田区后山路500号</span>
+                            </div>
+                            <div class="justify-end group_11">
+                                <span class="text_12">¥1,650</span>
+                                <span class="text_14">起/工位/月</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

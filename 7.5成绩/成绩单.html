@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .box {
+        width: 600px;
+        margin: 50px auto;
+    }
+
+    input,
+    button {
+        margin-top: 10px;
+    }
+
+    table {
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div class="box">
+        <table border="1" cellspacing='0'>
+            <track>
+            <tr>
+                <td>id</td>
+                <td>名字</td>
+                <td>数学成绩</td>
+                <td>英语成绩</td>
+                <td>语文成绩</td>
+                <td>历史成绩</td>
+                <td>总成绩</td>
+                <td>删除</td>
+            </tr>
+            </track>
+            <tbody id="tb"></tbody>
+        </table>
+        <input type="text" id="xingmingshuru"> <button id="chaxunxingming">查询姓名</button><br>
+        <button id="di300">总分低于300</button>
+        <button id="gao300">总分高于300</button>
+        <button id="shen">总分升序</button>
+        <button id="jiang">总分降序</button><br>
+        <button>尾部删除数据</button>
+        <button>尾部添加数据</button>
+        <button>头部删除数据</button>
+        <button>头部添加数据</button><br>
+        <input type="text" placeholder="输入id">
+        <input type="text" placeholder="输入姓名">
+        <input type="text" placeholder="输入语文成绩">
+        <input type="text" placeholder="输入数学成绩">
+        <input type="text" placeholder="输入英语成绩">
+        <input type="text" placeholder="输入历史成绩"><br>
+        总分: <input type="text" name="" id=""> <button>添加数据</button>
+
+
+    </div>
+    <script>
+        let arr = [{ id: 1910001, name: 'A', chengji: { shuxue: 100, yingyu: 99, yuwen: 98, lishi: 95 } },
+        { id: 1910002, name: 'B', chengji: { shuxue: 9, yingyu: 55, yuwen: 98, lishi: 95 } },
+        { id: 1910003, name: 'C', chengji: { shuxue: 44, yingyu: 99, yuwen: 98, lishi: 95 } },
+        { id: 1910004, name: 'D', chengji: { shuxue: 55, yingyu: 99, yuwen: 98, lishi: 95 } },
+        { id: 1910005, name: 'E', chengji: { shuxue: 66, yingyu: 99, yuwen: 98, lishi: 95 } }]
+
+        function xuan(a) {
+            tb.innerHTML = a.map((item, index) => {
+                return `<tr>
+                        <td>${item.id}</td>
+                        <td>${item.name}</td>
+                        <td>${item.chengji.shuxue}</td>
+                        <td>${item.chengji.yuwen}</td>
+                        <td>${item.chengji.yingyu}</td>
+                        <td>${item.chengji.lishi}</td>
+                        <td>${item.chengji.shuxue + item.chengji.yingyu + item.chengji.yuwen + item.chengji.lishi}</td>
+                        <td><button class="shan" id="${index}">删除</button></td>
+                    </tr>`
+            }).join('')
+            shanchu()
+        }
+        xuan(arr)
+        //删除
+        function shanchu() {
+            let shan = document.querySelectorAll('.shan')
+            shan.forEach(item => {
+                item.onclick = function () {
+                    delete arr[item.id]
+                    xuan(arr)
+                }
+            })
+        }
+        //查询姓名
+        chaxunxingming.onclick = function () {
+            let brr = arr.filter(item => {
+                return item.name.indexOf(xingmingshuru.value) != -1
+            })
+            xuan(brr)
+        }
+        //高低300
+        di300.onclick = function () {
+            let brr = arr.filter(item => {
+                console.log(item.chengji);
+                return (item.chengji.yuwen + item.chengji.shuxue + item.chengji.yingyu + item.chengji.lishi) < 300
+            })
+            console.log(brr);
+            xuan(brr)
+        }
+        gao300.onclick = function () {
+            let brr = arr.filter(item => {
+                console.log(item.chengji);
+                return (item.chengji.yuwen + item.chengji.shuxue + item.chengji.yingyu + item.chengji.lishi) > 300
+            })
+            console.log(brr);
+            xuan(brr)
+        }
+        //升降序
+        shen.onclick = function () {
+
+        }
+    </script>
+</body>
+
+</html>

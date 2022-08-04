@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background: linear-gradient(to right, #ffafbc, #ffc3a1);
+        display: flex;
+        justify-content: center;
+    }
+
+    .box {
+        width: 100%;
+        /* height: 700px; */
+        display: flex;
+        background-color: #f2f2f2;
+        flex-direction: column;
+        margin: 50px auto;
+        /* border-radius: 10px; */
+        align-items: center;
+        position: fixed;
+        margin: auto;
+        z-index: 999;
+        box-shadow: 0px 0px 10px rgb(129, 128, 128);
+    }
+
+    .main {
+        width: 667px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        /* overflow: scroll; */
+        margin-top: 110px;
+        /* margin: auto; */
+        /* position: fixed; */
+    }
+
+    .tou {
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .tou1 {
+        font-size: 60px;
+        color: #ffc3a1;
+        text-align: center;
+    }
+
+    #shu {
+        width: 400px;
+        height: 20px;
+        font-size: 30px;
+        background-color: #f2f2f2;
+        border: none;
+        border-bottom: 6px solid #ffafbc;
+
+    }
+
+    #queren {
+        width: 115px;
+        height: 45px;
+        border: 2px solid black;
+        border-radius: 5px;
+        background: white;
+        margin-left: 11px;
+    }
+
+    .tou2 {
+        display: flex;
+        justify-content: center;
+    }
+
+    .shi {
+        width: 667px;
+        /* height: 80px; */
+        background-color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin: 10px auto;
+        font-size: 22px;
+        position: relative;
+        color: #18aaee;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgb(129, 128, 128);
+        border-left: 5px solid #fe7345;
+        /* transform: scaleY(1); */
+        /* transition: all 1s; */
+        /* animation: all 1s 0s; */
+
+    }
+
+    p {
+        width: 82%;
+        padding: 22px;
+    }
+
+    .fuxuankuang {
+        width: 25px;
+        height: 25px;
+        border: none;
+        background-color: red;
+    }
+
+    .x {
+        font-size: 30px;
+        font-weight: 700;
+    }
+
+    .shi1 {
+        width: 667px;
+        /* height: 80px; */
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin: 10px auto;
+        font-size: 22px;
+        background: #fe7345;
+        color: white;
+        border-radius: 10px;
+        border-left: 5px solid #fe7345;
+        box-shadow: 0px 0px 10px rgb(129, 128, 128);
+        position: relative;
+        /* transform: scaleY(1); */
+        /* transition: all 1s */
+        /* animation: all 1s 0s; */
+    }
+
+    .donghua {
+        animation: all 0.5s 0s;
+    }
+
+    .donghua3 {
+        animation: all1 0.5s 0s;
+    }
+
+    .donghua4 {
+        animation: all4 0.1s 0s;
+    }
+
+    /* .donghua2 {
+        animation: all2 0.5s 0s;
+    } */
+
+    input,
+    .x {
+        cursor: pointer;
+        padding: 22px;
+    }
+
+    .fuxuankuang {
+        margin-left: 22px;
+    }
+
+    .sj {
+        font-size: 10px;
+        width: 120px;
+    }
+
+    .xia {
+        width: 100%;
+        height: 50px;
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(to right, #ffafbc, #ffc3a1);
+    }
+
+    .qk {
+        width: 80px;
+        height: 20px;
+        background-color: #1ab0d6;
+        border: none;
+        color: rgb(252, 252, 252);
+        cursor: pointer;
+        font-weight: 500;
+        box-shadow: 0px 0px 4px black;
+    }
+
+    @keyframes all {
+        0% {
+            transform: scaleY(1);
+        }
+
+        50% {
+            transform: scaleY(0);
+        }
+
+        100% {
+            transform: scaleY(1);
+        }
+    }
+
+    @keyframes all1 {
+        0% {
+            transform: scaleY(1);
+        }
+
+        50% {
+            transform: scaleY(0);
+        }
+
+        100% {
+            transform: scaleY(1);
+        }
+    }
+
+    @keyframes all2 {
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(0);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    @keyframes all4 {
+        0% {
+            transform: translate(0, -200px);
+        }
+
+        50% {
+            transform: translate(0, -100px);
+        }
+
+        100% {
+            transform: translate(0, 0px);
+        }
+    }
+</style>
+<script src="../JS把戏/jQuer/jquery-3.6.0.min..js"></script>
+
+<body>
+    <div class="box">
+        <div class="tou">
+            <!-- <div class="tou1">记作业</div> -->
+            <div class="tou2">
+                <input type="text" id="shu" style="outline:none" placeholder="输入内容">
+
+            </div>
+        </div>
+
+
+    </div>
+    <div class="main">
+    </div>
+    <div class="xia"> <button class="qk">清空</button></div>
+</body>
+<script>
+    $(function () {
+        shu.focus()
+        let obj = []
+        $(window).on('keyup', function (e) {
+            if (e.originalEvent.key == 'Enter') {
+                if (!localStorage.getItem('chai')) {
+                    let arr = { "shi": shu.value, 'z': false, sj: riqi() }
+                    obj.unshift(arr)
+                    localStorage.setItem('chai', JSON.stringify(obj))
+                } else {
+                    let arr = localStorage.getItem('chai')
+                    obj = JSON.parse(arr)
+                    let arr2 = { "shi": shu.value, 'z': false, sj: riqi() }
+                    obj.unshift(arr2)
+                    localStorage.setItem('chai', JSON.stringify(obj))
+                }
+                // console.log(obj[0]);
+                $('.main').prepend(
+                    `<div class="${obj[0].z ? 'shi1' : 'shi'} donghua4 ">
+                <input type="checkbox" name="" id="" class="fuxuankuang" ${obj[0].z ? 'checked' : null}>
+                <p>${obj[0].shi}</p>
+                <span class='sj'>${obj[0].sj}</span>
+                <span class="x" style="color:red">✖</span>
+            </div>`)
+                shu.value = ''
+                // xuan()
+            }
+        })
+        //渲染
+        function xuan() {
+            obj = JSON.parse(localStorage.getItem('chai'))
+            // console.log(obj);
+            $('.main').html(obj.map(item => {
+                return `<div class="${item.z ? 'shi1' : 'shi'} donghua2">
+                <input type="checkbox" name="" id="" class="fuxuankuang" ${item.z ? 'checked' : null}>
+                <p>${item.shi}</p>
+                <span class='sj'>${item.sj}</span>
+                <span class="x" style="color:red">✖</span>
+            </div>`
+            }))
+        }
+        if (localStorage.getItem('chai')) {
+            xuan()
+        }
+        //点击换模式
+        $('.main').on('change', '.fuxuankuang', function () {
+            obj[$(this).index('.fuxuankuang')].z = this.checked
+            localStorage.setItem('chai', JSON.stringify(obj))
+            //翻转
+            this.checked ? $(this).parent().addClass('shi1 donghua').removeClass('shi donghua3 donghua2 donghua4') :
+                $(this).parent().addClass('shi donghua3').removeClass('shi1 donghua donghua2 donghua4')
+            // console.log(1);
+
+        })
+        //删除
+        $('.main').on('click', '.x', function () {
+            $(this).parent().animate({
+                left: '-2220px'
+            }, function () { xuan() })
+            obj.splice($(this).index('.x'), 1)
+            localStorage.setItem('chai', JSON.stringify(obj))
+        })
+        $('.qk').on('click', function () {
+            $('.main div').animate({
+                left: '-2220px'
+            }, function () {
+                localStorage.setItem('chai', '')
+                obj = []
+                $('.main').html('')
+            })
+        })
+    })
+    function riqi() {
+        var time = new Date();
+        var year = time.getFullYear();
+        var month = time.getMonth() + 1;
+        var date = time.getDate();
+        var day = time.getDay();
+        var shi = time.getHours();
+        var fen = time.getMinutes();
+        var miao = time.getSeconds();
+        var arry = ['日', '一', '二', '三', "四", '五', '六']
+        var now = year + "/" + month + "/" + date
+        //  + "<br>" + (shi < 10 ? shi = '0' + shi : shi) +
+        //     ':' + (fen < 10 ? fen = '0' + fen : fen) + ':' + (miao < 10 ? miao = '0' + miao : miao);
+        return now
+    }
+</script>
+
+</html>

@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #d9cdb6;
+    }
+
+    .head {
+        width: 800px;
+        height: 30px;
+        margin: auto;
+        font-size: 12px;
+        color: #898078;
+        line-height: 30px;
+    }
+
+    .main {
+        width: 800px;
+        /* height: 750px; */
+        margin: auto;
+        background-color: #faeed7;
+    }
+
+    .p {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+        overflow: hidden;
+        margin: auto;
+    }
+
+    .p>p {
+        width: 80%;
+        /* margin-top: 25px; */
+    }
+
+    .set {
+        width: 50px;
+        height: 50px;
+        position: fixed;
+        top: 40%;
+        left: 15%;
+        background-color: #e2daca;
+        text-align: center;
+        line-height: 50px;
+        cursor: pointer;
+        color: rgb(131, 130, 130);
+    }
+
+    .Mask {
+        width: 100%;
+        height: 100%;
+        background-color: rgb(12, 12, 12, 0.5);
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        display: none;
+    }
+
+    .option {
+        width: 800px;
+        height: 550px;
+        background-color: #fafaf9;
+    }
+
+    .top {
+        height: 80px;
+        font-size: 25px;
+        line-height: 80px;
+        padding-left: 50px;
+    }
+
+    .center {
+        height: 400px;
+        font-size: 22px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .bottom {
+        height: 100px;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    button {
+        width: 160px;
+        height: 40px;
+        cursor: pointer;
+    }
+
+    .center>p {
+        padding-left: 50px;
+        padding-top: 30px;
+    }
+
+    .ys,
+    .zys {
+        display: block;
+        width: 30px;
+        height: 30px;
+        border-radius: 40px;
+        float: left;
+        margin-left: 22px;
+        border: 1px solid rgb(214, 214, 214);
+        cursor: pointer;
+        text-align: center;
+        line-height: 30px;
+    }
+
+    .ysz {
+        float: left;
+    }
+
+    .ztz {
+        float: left;
+    }
+
+    .ysx,
+    .zysx {
+        margin-left: 22px;
+        cursor: pointer;
+    }
+
+    .zt {
+        /* width: 72px; */
+        height: 33px;
+        border: 1px solid #d6d6d6;
+        border-radius: 5px;
+        display: block;
+        float: left;
+        margin-left: 10px;
+        text-align: center;
+        cursor: pointer;
+        background: white;
+    }
+
+    .ztdx,
+    .ztdxjia,
+    .ztdxjian,
+    .ztdxxianshi {
+        width: 50px;
+        height: 33px;
+        border: 1px solid #d6d6d6;
+        border-radius: 5px;
+        display: block;
+        float: left;
+        margin-left: 10px;
+        text-align: center;
+        cursor: pointer;
+        background: white;
+    }
+
+    .ztdxz {
+        float: left;
+    }
+
+    .ym,
+    .ymj,
+    .ymjian,
+    .ymx {
+        width: 72px;
+        height: 33px;
+        border: 1px solid #d6d6d6;
+        border-radius: 5px;
+        display: block;
+        float: left;
+        margin-left: 10px;
+        text-align: center;
+        cursor: pointer;
+        background: white;
+    }
+
+    .ymz {
+        float: left;
+    }
+
+    .yueduxian1 {
+        width: 68px;
+        height: 30px;
+        /* border: 1px solid black; */
+        border-radius: 30px;
+        display: block;
+        float: left;
+        margin-left: 33px;
+        z-index: 999;
+        cursor: pointer;
+        background: rgb(190, 189, 189);
+    }
+
+    .yueduxian2 {
+        margin-left: 22px;
+        cursor: pointer;
+    }
+
+    .yueduz {
+        float: left;
+    }
+
+    .qiu {
+        display: block;
+        width: 32px;
+        height: 32px;
+        background: #ff6600;
+        border-radius: 30px;
+        margin-top: -1px;
+    }
+
+    .x {
+        display: block;
+        width: 25px;
+        height: 25px;
+        border: 1px solid green;
+        color: green;
+        text-align: center;
+        line-height: 23px;
+        border-radius: 23px;
+        float: right;
+        margin-top: 22px;
+        margin-right: 22px;
+        /* font-family: 幼圆; */
+        cursor: pointer;
+    }
+
+    .qiuz {
+        float: left;
+    }
+
+    .qiuyou {
+        float: right;
+        background-color: #898078;
+    }
+
+    .xian {
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+    }
+
+    .ysm {
+        border: 1px solid #d6d6d6;
+        cursor: pointer;
+        margin-left: 22px;
+    }
+
+    .on {
+        border: 1px solid #ff6600;
+        color: #ff6600;
+        text-align: center;
+        line-height: 32px;
+    }
+
+    #queren {
+        background-color: #ff6600;
+        color: white;
+        border: none;
+    }
+
+    .bj {
+        background: url(./bgLine.png) #faeed7;
+        line-height: 60px;
+        background-position: 0px 15px;
+    }
+
+    .bj2 {
+        /* background: url(./bgLine.png) #faeed7; */
+        line-height: 40px;
+        background-position: 0px 15px;
+    }
+</style>
+
+<body>
+    <div class="head">
+        <p>当前位置>首页>玄幻奇幻>大荒剑帝>正文</p>
+    </div>
+    <div class="main bj2" id="main">
+        <div class="p" id="p" style="font-size: 14px;">
+            <p>江省南市飞机场出口。</p>
+            <p>韩浩环顾着四周，冰冷的脸上浮现一抹缅怀之色。</p>
+            <p>五年了！</p>
+            <p>往事一幕幕浮现，依旧如刀割一般。</p>
+            <p>“韩浩，你癞蛤蟆想吃天鹅肉？想娶我女儿？我一百个不答应！”</p>
+            <p>“你和林子豪根本就是一个地下，一个天上。我女儿自然是嫁给林家，而不是你！”</p>
+            <p>“浩哥，你走吧，我不想再见到你。你连基本的车房都没有，我跟你过苦日子吧？更别说，你现在背负了一屁股债。”</p>
+            <p>“你再纠缠小雪，我就杀你全家！”</p>
+            <p>“他是个精神病，别放他出来！”</p>
+            <p>深呼吸了一口气，韩浩将一切摒除脑外，这才拿起手机，翻到电话簿“老李”，拨通了对方的电话。</p>
+            <p>电话很快接通了，对面传来一焦急的声音道：“是韩浩吗？你下飞机了？”</p>
+            <p>韩浩道：“是我，老李。我现在在飞机场出口，你住哪儿？我怎么坐车去找你？”</p>
+            <p>老李压低声音道：“我现在在协和医院，在商讨给一个病人动手术。你先过来这里，来帮我下，我们专家组都想不出治疗的方案。”</p>
+            <p>韩浩有些无奈，你老人家跟我师父说，是让我来度假的。这一下飞机，就让我去做这事，也真是。</p>
+            <p>可他还是应了一声道：“行吧，怎么坐车？”</p>
+            <p>老李道：“你搭乘一辆出租车，直接说去协和医院就行。”</p>
+            <p>韩浩挂断电话，按照老李的说法径直赶到协和医院。</p>
+            <p>在协和医院门口，一个年轻的护士正翘首以待，手里握着手机，手机屏幕上赫然显示着韩浩的照片。</p>
+            <p>见到韩浩走进来，护士忙迎了上来道：“韩浩先生，李医生让我带你进去！”</p>
+            <p>韩浩跟着护士走到一会议室门口。</p>
+            <p>在会议室门口的走廊上，站着一个年轻的女子。</p>
+            <p>女子穿着一身米黄色的长裙，身材婀娜，脸蛋也非常精致。</p>
+            <p>韩浩的眼睛微微眯着，脸上弥漫着杀气。</p>
+            <p>怎么都没有想到，五年了，回来见到的第一面竟然是她！</p>
+            <p>前女友陈雪！</p>
+            <p>六年前，陈雪得了白血病，需要五十万手术费。</p>
+            <p>韩浩拿出所有积蓄，并且借了很多高利贷，才凑足了这些费用，给陈雪治好了病。</p>
+            <p>但是，陈雪治好病之后，不是和韩浩结婚，而是听了家里人的话，嫁给了一个叫做林子豪的富家大少。</p>
+            <p>自己在婚礼上寻找说法，竟然被林子豪父母叫来安保公司，强行送往精神病院，而且买通了精神病院的院长。</p>
+            <p>要不是他跳楼的时候，师父刚好经过，自己现在坟头草都长一米高了！</p>
+            <p>再看着眼前的女人，韩浩双拳捏得咯咯作响。</p>
+            <p>陈雪本来在焦急地来回跺着脚步。</p>
+            <p>感受到有人一直在盯着她，她才抬起头。</p>
+            <p>待看到来人是韩浩时，陈雪眸子微微缩着。</p>
+            <p>可很快，她又平静下来，神色冷漠道：“听说你从精神病院逃走了，没想到你又回来了，看起来也像个正常人了。可我现在已经是林家太太了，你别再纠缠我。否则，我公公会再做出什么事情了，我就不知道了。”</p>
+            <p>韩浩走过去，咬牙切齿，扬起巴掌就要扇下去。</p>
+            <p>陈雪急忙抬起手臂要挡。</p>
+            <p>手掌刚刚到对方的头顶，却被硬生生忍了下去。</p>
+            <p>护士也吓傻了，就要拉住韩浩。</p>
+            <p>韩浩俯瞰着陈雪，冷冷道：“当初你犯病，若是没有我凑的五十万，你连骨头都烂了，贱货！治好了病，就来背叛，我真是瞎了眼！你以为我还迷恋你？做你的春秋大梦去！你欠我的，我连本带利都要拿回来！”</p>
+            <p>陈雪见巴掌没有落下，这才移开胳膊，理直气壮道：“我怕你不成？你个普信男，打女人，算什么本事？”</p>
+            <p>就这时，会议室门打开，一个老人走了出来。</p>
+            <p>护士忙道：“李医生，这里——”</p>
+            <p>她的话还没有说完，陈雪急匆匆地过去道：“李医生，一定要救我老公！求你了！”</p>
+            <p>李医生掰开陈雪的手，语重心长地道：“你放心，我们专家组正在研究林先生的治疗方案。”</p>
+            <p>挤出一个笑容，李医生指了指韩浩道：“而且，我已经请来了一个医术非常厉害的医生，他有十几次成功治疗类似病的经验。”</p>
+            <p>韩浩眯着眼睛。</p>
+            <p>这个李医生，就是经常联系他的老李。</p>
+            <p>没有想到，他这次叫自己急匆匆赶来，竟然是给陈雪的老公，林家少爷林子豪治病！</p>
+            <p>陈雪听李医生这么一说，人直接傻了眼。</p>
+            <p>老李笑着走向韩浩道：“终于来了，等你好久了！你再不来，我都要去开车接你了！”</p>
+            <p>指着陈雪，老李道：“介绍下，韩浩，这是病人家属陈雪。”</p>
+            <p>又对陈雪道：“韩浩医生。”</p>
+            <p>陈雪这才回过神来，脸色惨白一片，颤声道：“医生都有医德，你肯定会出手相救的，对吧？”</p>
+            <p>韩浩阴鸷地笑道：“你说呢？”</p>
+            <p>看向老李，韩浩道：“先看看病人的状况，其他再说。”</p>
+            <p>老李忙做了个请的姿势道：“跟我来！韩浩，此次真是劳烦你了，等忙完这件事，我让我孙女陪你去海滩上玩。我孙女可也是小美女一个，一直囔囔着要见你呢！”</p>
+            <p>陈雪见韩浩和老李有说有笑地离开，忙跟了上去，松了一口气。</p>
+            <p>医生应该有医德，他应该会出手救自己的丈夫的。</p>
+            <p>只是说话难听一些而已。</p>
+            <p>为了丈夫，为了林家，就忍一会儿好了。</p>
+            <p>只要丈夫好起来，一切好说。</p>
+            <p>韩浩赶到7楼VIP病房。</p>
+            <p>此时，VIP病房的大门打开，门口站着两个穿着西装革履的保镖。</p>
+            <p>病房里面，一张病床上躺着一个戴着帽子的身影。</p>
+            <p>一个中年男子正拿着保温盒，正一边笑眯眯地说着什么，一边喂身影吃饭。</p>
+            <p>那样子，一副父慈子孝的样子。</p>
+            <p>陈雪几个快步上前走了进去。</p>
+            <p>中年男子转过身，原本笑眯眯的神情立马阴沉下来，呵斥道：“急什么？没看到豪儿在休息吗？”</p>
+            <p>陈雪委屈地看了一眼病床上的人，这才低声道：“韩浩来了。”</p>
+            <p>中年男子骂道：“神经病！韩浩是谁？他算老几！”</p>
+            <p>下一刻，他的声音戛然而止。</p>
+            <p>只见病房门口，一个青年男子和老李有说有笑地走了进来。</p>
+            <p>这青年男子！</p>
+            <p>中年男子噌地下站起来，失声道：“是你！”&nbsp;</p>
+
+
+
+        </div>
+    </div>
+    <div class="set" id="shezhi">设置</div>
+    <div class="Mask" id="mask">
+        <div class="option">
+            <div class="top">设置 <span class="x" id="x">x</span></div>
+            <div class="center">
+                <p><span class="ysz">背景颜色:</span>
+                    <span id="hong" class="ys" style="background-color: white"></span>
+                    <span id="hong" class="ys" style="background-color: black ;color:white"></span>
+                    <span id="hong" class="ys" style="background-color: red"></span>
+                    <span id="huang" class="ys" style="background-color: yellow"></span>
+                    <span id="lan" class="ys" style="background-color: blue"></span>
+                    <span id="lv" class="ys" style="background-color: green"></span>
+                    <span id="zi" class="ys" style="background-color: pink"></span>
+                    <span class="ysm" id="bjmr">默认</span>
+                    <span class="ysx"><input type="color" id="yansexuanze"></span>
+
+                </p>
+                <p><span class="ztz">字体设置:</span>
+                    <span class="zt" id="yahei">幼圆</span>
+                    <span class="zt" id="songti">宋体</span>
+                    <span class="zt on" id="xingkai">行楷</span>
+                    <span class="zt" id="songti">华文彩云</span>
+                    <span class="zt" id="songti">隶书</span>
+                </p>
+                <p><span class="ztdxz">字体大小:</span>
+                    <span class="ztdx" id="30">特大</span>
+                    <span class="ztdx" id="20">大</span>
+                    <span class="ztdx on" id="16">中</span>
+                    <span class="ztdx" id="10">小</span>
+                    <button class="ztdxjia" id="zitijia">A+</button>
+                    <span class="ztdxxianshi" id="ztdxxx">14</span>
+                    <button class="ztdxjian" id="zitijian">A-</button>
+                </p>
+                <p><span class="ysz">字体颜色:</span>
+                    <span id="hong1" class="zys" style="background-color: white"></span>
+                    <span id="hong1" class="zys" style="background-color: black ;color:white"></span>
+                    <span id="hong1" class="zys" style="background-color: red"></span>
+                    <span id="huang1" class="zys" style="background-color: yellow"></span>
+                    <span id="lan1" class="zys" style="background-color: blue"></span>
+                    <span id="lv1" class="zys" style="background-color: green"></span>
+                    <span id="zi1" class="zys" style="background-color: pink"></span>
+                    <span class="ysm" id="ztmr">默认</span>
+                    <span class="zysx"><input type="color" id="yansexuanze1"></span>
+
+                </p>
+                <p><span class="yueduz">阅读线:</span>
+                    <span class="yueduxian1" id="yueduxian">
+                        <span class="qiu qiuyou" id="qiu"></span>
+                    </span>
+                    <span class="yueduxian2" id="yueduxian2">已关闭</span>
+                </p>
+                <p><span class="ymz">页面宽度:</span>
+                    <span class="ym" id="1500">特大</span>
+                    <span class="ym" id="1200">大</span>
+                    <span class="ym on" id="800">中</span>
+                    <span class="ym" id="500">小</span>
+                    <button class="ymj" id="ymjia">+</button>
+                    <span class="ymx" id="ymx">800</span>
+                    <button class="ymjian" id="ymjian">-</button>
+                </p>
+            </div>
+            <div class="bottom">
+                <button id="queren">确认</button>
+                <button id="huifu">恢复默认</button>
+
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+
+    let center = document.querySelector('.center')
+    let daxiao = 14 //字体大小
+    let kuan = 800
+    let pp = document.querySelectorAll('#p p')
+    let yss = document.querySelectorAll('.ys')
+    let ztt = document.querySelectorAll('.zt')
+    let ztdxx = document.querySelectorAll('.ztdx')
+    let ymm = document.querySelectorAll('.ym')
+    let zyss = document.querySelectorAll('.zys')
+    center.onclick = function (e) {
+        let t = e.target
+        //颜色选择
+        if (t.className == 'ys') {
+            main.style.backgroundColor = t.style.backgroundColor
+            // dianji(yss, t)
+            yss.forEach(item => {
+                item.innerHTML = ''
+            })
+            t.innerHTML = '✔'
+        }
+        //字体
+        if (t.className == 'zt') {
+            console.log(t.innerHTML);
+            p.style = `font-family:${t.innerHTML};`
+            dianji(ztt, t)
+        }
+        //字体大小
+        if (t.className == 'ztdx') {
+            console.log(t.id);
+            p.style.fontSize = t.id + 'px'
+            ztdxxx.innerHTML = t.id
+            daxiao = t.id * 1
+            dianji(ztdxx, t)
+            zitijia.disabled = false
+            zitijian.disabled = false
+        }
+        //字体大小加减
+
+        if (t.className == 'ztdxjia') {
+            daxiao += 2
+            ztdxxx.innerHTML = daxiao
+            p.style.fontSize = daxiao + 'px'
+            // console.log(daxiao, t);
+            zitijian.disabled = false
+            dianji2(ztdxx)
+            if (daxiao >= 48) {
+                t.disabled = true
+            }
+
+        }
+        if (t.className == 'ztdxjian') {
+            daxiao -= 2
+            ztdxxx.innerHTML = daxiao
+            p.style.fontSize = daxiao + 'px'
+            zitijia.disabled = false
+            // console.log(daxiao);
+            dianji2(ztdxx)
+            if (daxiao <= 12) {
+                t.disabled = true
+            }
+        }
+        //页面宽度加减
+        if (t.className == 'ymj') {
+            kuan += 100
+            main.style.width = kuan + 'px'
+            ymx.innerHTML = kuan
+            ymjian.disabled = false
+            dianji2(ymm)
+            if (kuan >= 1800) {
+                t.disabled = true
+            }
+        }
+        if (t.className == 'ymjian') {
+            kuan -= 100
+            main.style.width = kuan + 'px'
+            ymx.innerHTML = kuan
+            ymjia.disabled = false
+            dianji2(ymm)
+            if (kuan <= 500) {
+                t.disabled = true
+            }
+        }
+        //页面宽度
+        if (t.className == 'ym') {
+            main.style.width = t.id + 'px'
+            ymx.innerHTML = t.id
+            kuan = t.id * 1
+            dianji(ymm, t)
+            ymjian.disabled = false
+            ymjia.disabled = false
+        }
+        //字体颜色
+        if (t.className == 'zys') {
+            // dianji(zyss, t)
+            main.style.color = t.style.backgroundColor
+            zyss.forEach(item => {
+                item.innerHTML = ''
+            })
+            t.innerHTML = '✔'
+        }
+        //阅读线
+        if (t.className == 'yueduxian1' || t.id == 'qiu') {
+            if (qiu.className == 'qiu qiuz') {
+                qiu.classList.remove('qiuz')
+                qiu.classList.add('qiuyou')
+                yueduxian2.innerHTML = '已关闭'
+                yueduxian2.style.color = 'black'
+                main.classList.remove('bj')
+                main.classList.add('bj2')
+                // pp.forEach(item => {
+                //     item.classList.remove('xian')
+                // })
+            } else {
+                qiu.classList.remove('qiuyou')
+                qiu.classList.add('qiuz')
+                yueduxian2.innerHTML = '已开启'
+                yueduxian2.style.color = '#ff6600'
+                main.classList.add('bj')
+                main.classList.remove('bj2')
+                // pp.forEach(item => {
+                //     item.classList.add('xian')
+                // })
+            }
+        }
+
+    }
+    //颜色选择器
+    yansexuanze.onchange = function () {
+        main.style.backgroundColor = yansexuanze.value
+    }
+    yansexuanze1.onchange = function () {
+        main.stylee.color = yansexuanze1.value
+    }
+    // 关闭
+    queren.onclick = function () {
+        mask.style.display = 'none'
+    }
+    x.onclick = function () {
+        mask.style.display = 'none'
+    }
+    //打开设置
+    shezhi.onclick = function () {
+        mask.style.display = 'flex'
+    }
+    //默认值
+    bjmr.onclick = function () {
+        main.style.backgroundColor = '#faeed7'
+        yss.forEach(item => {
+            item.innerHTML = ''
+        })
+    }
+    ztmr.onclick = function () {
+        main.style.color = 'black'
+        zyss.forEach(item => {
+            item.innerHTML = ''
+        })
+    }
+    //恢复默认
+    huifu.onclick = function () {
+        main.style.backgroundColor = '#faeed7'
+        p.style.fontFamily = '行楷'
+        p.style.fontSize = '14px'
+        main.style.color = 'black'
+        main.style.width = '800px'
+        daxiao = 14
+        kuan = 800
+        ztdxxx.innerHTML = daxiao
+        ymx.innerHTML = kuan
+        yss.forEach(item => {
+            item.innerHTML = ''
+        })
+        dianji(ztt, ztt[2])
+        dianji(ztdxx, ztdxx[2])
+        dianji(ymm, ymm[2])
+        // dianji(zyss, zyss[2])
+        zyss.forEach(item => {
+            item.innerHTML = ''
+        })
+        qiu.classList.remove('qiuz')
+        qiu.classList.add('qiuyou')
+        yueduxian2.innerHTML = '已关闭'
+        yueduxian2.style.color = 'black'
+        main.classList.add('bj2')
+        main.classList.remove('bj')
+        zitijia.disabled = false
+        zitijian.disabled = false
+        ymjian.disabled = false
+        ymjia.disabled = false
+    }
+    function dianji(a, b) {
+        a.forEach(item => {
+            item.classList.remove('on')
+        })
+        b.classList.add('on')
+    }
+    function dianji2(a) {
+        a.forEach(item => {
+            item.classList.remove('on')
+        })
+    }
+
+</script>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    #box {
+        border: 1px solid black;
+        height: 200px;
+    }
+
+    #box1 {
+        border: 1px solid black;
+        font-size: 100px;
+        text-align: center;
+    }
+
+    #box1 div {
+        display: none;
+    }
+
+    #box ul li {
+        float: left;
+        width: 25%;
+        text-align: center;
+        line-height: 200px;
+    }
+</style>
+
+<body>
+    <div id="box"></div>
+    <div id="box1"></div>
+</body>
+<script>
+    let arr = ['导航', '我的淘宝', '客服中心', '购物车']
+    let arr2 = [11, 22, 33, 44]
+    let a = `<ul>`
+    for (let i = 0; i < arr.length; i++) {
+        a += `<li>${arr[i]}</li>`
+    }
+    box.innerHTML = a + '</ul>'
+
+
+    for (let i = 0; i < arr2.length; i++) {
+        box1.innerHTML += `<div>${arr2[i]}</div>`
+    }
+
+    let btn = document.querySelectorAll('#box ul li')
+    let btn1 = document.querySelectorAll('#box1 div')
+    console.log(btn);
+    btn1[0].style.display = 'block'
+    btn[0].style.background = 'red'
+    for (let i = 0; i < btn.length; i++) {
+        btn[i].onclick = function () {
+            for (let j = 0; j < btn1.length; j++) {
+                btn1[j].style.display = 'none'
+                btn[j].style.background = ''
+            }
+            btn1[i].style.display = 'block'
+            btn[i].style.background = 'red'
+        }
+    }
+
+</script>
+
+</html>

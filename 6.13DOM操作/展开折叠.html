@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .div {
+        width: 500px;
+        height: 500px;
+        margin: 100px auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #fold {
+        width: 80px;
+        height: 30px;
+        margin-top: 20px;
+    }
+
+    .text {
+        width: 100%;
+        /* height: 200px; */
+        border: 1px solid black;
+        /* overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap; */
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        transition: all 0.5s;
+    }
+
+    .text2 {
+        width: 100%;
+        height: 150px;
+        border: 1px solid black;
+        overflow: auto;
+        transition: all 0.5s;
+
+    }
+</style>
+
+<body>
+    <div class="div">
+        <div class="text" id="text">一代又一代的人在延续长城的生命 【 文物保护最终的目标就是让文物活着 】 1952年，
+            国家组织开展了第一批长城保护维修工程；1984年《北京晚报》和《北京日报》联合发起
+            “爱我中华修我长城”社会赞助活动一代又一代的人在延续长城的生命 【 文物保护最终的目标就是让文物活着 】 1952年，
+            国家组织开展了第一批长城保护维修工程；1984年《北京晚报》和《北京日报》联合发起
+            “爱我中华修我长城一代又一代的人在延续长城的生命 【 文物保护最终的目标就是让文物活着 】 1952年，国家组织开展
+            了第一批长城保护维修工程；1984年《北京晚报》和《北京日报》联合发起 “爱我中华
+            修我长城”社会赞助活动</div>
+        <button id="fold">展开</button>
+    </div>
+    <script>
+        let kaiguan = true
+        fold.onclick = function () {
+            kaiguan ? (text.classList.remove('text'), text.classList.add('text2'), kaiguan = false, fold.innerHTML = '折叠') :
+                (text.classList.add('text'), text.classList.remove('text2'), kaiguan = true, fold.innerHTML = '展开')
+        }
+    </script>
+</body>
+
+</html>

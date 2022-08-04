@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .box {
+        width: 500px;
+        height: 500px;
+        margin: 8% auto;
+        border: 1px solid black;
+    }
+
+    dl {
+        width: 100%;
+        height: 100%;
+    }
+
+    dt {
+        width: 100%;
+        height: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    dd {
+        width: 100%;
+        height: 20%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #kai,
+    #guan {
+        display: none;
+    }
+
+    #btn {
+        width: 100px;
+        height: 50px;
+    }
+</style>
+
+<body>
+    <div class="box">
+        <dl>
+            <dt><img id="kaiguan" src="./img/guan.png" alt=""></dt>
+            <dd><button id="btn">开灯</button></dd>
+        </dl>
+    </div>
+    <script>
+        btn.onclick = function () {
+            btn.innerHTML == '开灯' ? (kaiguan.src = 'file:///C:/Users/%E6%9F%B4%E5%B0%91%E5%AE%87/Desktop/%E6%9C%AB%E7%8F%AD/6.13DOM%E6%93%8D%E4%BD%9C/img/kai.png',
+                btn.innerHTML = '关灯') : (kaiguan.src = 'file:///C:/Users/%E6%9F%B4%E5%B0%91%E5%AE%87/Desktop/%E6%9C%AB%E7%8F%AD/6.13DOM%E6%93%8D%E4%BD%9C/img/guan.png',
+                    btn.innerHTML = '开灯')
+        }
+        kaiguan.onclick = function () {
+            btn.innerHTML == '开灯' ? (kaiguan.src = 'file:///C:/Users/%E6%9F%B4%E5%B0%91%E5%AE%87/Desktop/%E6%9C%AB%E7%8F%AD/6.13DOM%E6%93%8D%E4%BD%9C/img/kai.png',
+                btn.innerHTML = '关灯') : (kaiguan.src = 'file:///C:/Users/%E6%9F%B4%E5%B0%91%E5%AE%87/Desktop/%E6%9C%AB%E7%8F%AD/6.13DOM%E6%93%8D%E4%BD%9C/img/guan.png',
+                    btn.innerHTML = '开灯')
+        }
+
+    </script>
+</body>
+
+</html>

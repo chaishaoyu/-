@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .box {
+        width: 500px;
+        height: 500px;
+        border: 1px solid black;
+        margin: 100px auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #diyi,
+    #dier,
+    #jieguo {
+        width: 400px;
+        height: 30px;
+        display: block;
+        margin-top: 22px;
+    }
+
+    .yunsuanfu {
+        height: 50px;
+        display: flex;
+        align-items: center;
+    }
+
+    button {
+        margin-top: 22px;
+    }
+</style>
+
+<body>
+    <div class="box">
+        <input type="text" name="" id="diyi" placeholder="第一个值">
+        <div class="yunsuanfu">
+            <input type="radio" name="yunsuan" class="danxuan" value="+" checked="checked"><span>
+                +&nbsp&nbsp&nbsp</span>
+            <input type="radio" name="yunsuan" class="danxuan" value="-"><span> -&nbsp&nbsp&nbsp</span>
+            <input type="radio" name="yunsuan" class="danxuan" value="*"><span> *&nbsp&nbsp&nbsp</span>
+            <input type="radio" name="yunsuan" class="danxuan" value="/"><span> /&nbsp&nbsp&nbsp</span>
+            <input type="radio" name="yunsuan" class="danxuan" value="%"><span> %&nbsp&nbsp&nbsp</span>
+            <input type="radio" name="yunsuan" class="danxuan" value="**"><span> **&nbsp&nbsp&nbsp</span>
+        </div>
+        <input type="text" name="" id="dier" placeholder="第二个值">
+        <button id="jisuan">开始计算</button>
+        <button id="chongzhi">重置</button>
+        <input type="text" placeholder="计算结果" id="jieguo">
+    </div>
+</body>
+<script>
+    jisuan.onclick = function () {
+        let danxuan = document.querySelectorAll('.danxuan')
+        danxuan.forEach((item, index) => {
+            if (item.checked && diyi.value != '' && dier.value != '' && index == 0) {
+                jieguo.value = (diyi.value * 1) + (dier.value * 1)
+            }
+            if (item.checked && diyi.value != '' && dier.value != '' && index == 1) {
+                jieguo.value = (diyi.value * 1) - (dier.value * 1)
+            }
+            if (item.checked && diyi.value != '' && dier.value != '' && index == 2) {
+                jieguo.value = (diyi.value * 1) * (dier.value * 1)
+            }
+            if (item.checked && diyi.value != '' && dier.value != '' && index == 3) {
+                jieguo.value = (diyi.value * 1) / (dier.value * 1)
+            }
+            if (item.checked && diyi.value != '' && dier.value != '' && index == 4) {
+                jieguo.value = (diyi.value * 1) % (dier.value * 1)
+            }
+            if (item.checked && diyi.value != '' && dier.value != '' && index == 5) {
+                jieguo.value = (diyi.value * 1) ** (dier.value * 1)
+            }
+        })
+        if (diyi.value == '' || dier.value == '') {
+            alert('请输入内容')
+        }
+    }
+    chongzhi.onclick = function () {
+        let inp = document.querySelectorAll('input')
+        inp.forEach(item => {
+            item.value = ''
+        })
+    }
+</script>
+
+</html>

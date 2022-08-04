@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #cccc;
+    }
+
+    .box {
+        width: 1300px;
+        margin: 50px auto;
+        /* background-color: red; */
+        display: flex;
+        flex-wrap: wrap;
+        /* justify-content: center; */
+    }
+
+    .a {
+        width: 320px;
+        height: 290px;
+        margin-left: 4px;
+        margin-top: 5px;
+        background-color: white;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .a1 {
+        width: 100%;
+        height: 100%;
+        margin-left: 4px;
+        margin-top: 5px;
+        /* background-color: white; */
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 999;
+    }
+
+    .b {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: none;
+        background: linear-gradient(to bottom, rgb(246, 243, 243, 0.3), rgb(246, 243, 243, 0.3));
+    }
+
+    dl {
+        /* background-color: aqua; */
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .dt {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .dd1 {
+        padding: 0px 15px;
+        font-size: 15px;
+        padding-top: 30px;
+    }
+
+    .dd2 {
+        padding: 0px 15px;
+        color: red;
+    }
+
+    .q1,
+    .q3 {
+        font-size: 10px;
+        font-weight: 800;
+    }
+
+    .q2 {
+        font-size: 20px;
+        font-weight: 800;
+    }
+
+    .b1 {
+        width: 200px;
+        height: 40px;
+        background: black;
+        margin: auto;
+        /* margin-top: 193px; */
+        border-radius: 50px;
+        text-align: center;
+        line-height: 40px;
+        color: white;
+        z-index: 9999;
+    }
+
+    .yan {
+        margin-top: 220px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 72px;
+        background: linear-gradient(to bottom, rgba(255, 254, 254, 0.9), rgb(255, 255, 255, 1));
+    }
+
+    .icon {
+        position: relative;
+        top: 2px;
+        z-index: -11;
+    }
+</style>
+
+<body>
+    <div class="box" id="box">
+        <div class="a">
+            <dl>
+                <dt class="dt"><img id="img" src="./img/1.png" alt=""></dt>
+                <dd class="dd1">魅族17 8GB+256GB松深入墨骁龙865旗舰
+                    5G手机30W快充6400W后置主摄90Hz...</dd>
+                <dd class="dd2">
+                    <span class="q1">¥</span>
+                    <span class="q2">4699</span>
+                    <span class="q3">.00</span>
+                </dd>
+            </dl>
+        </div>
+    </div>
+</body>
+
+<script>
+    // console.log(img.src);
+    let arr = [
+        { tu: 'file:///C:/Users/%E6%9F%B4%E5%B0%91%E5%AE%87/Desktop/%E6%9C%AB%E7%8F%AD/6.24%E6%B8%B2%E6%9F%93%E4%BA%AC%E4%B8%9C/img/1.png', zi: '魅族17 8GB+256GB松深入墨骁龙865旗舰5G手机30W快充6400W后置主摄90Hz...', jia: 4699 },
+        { tu: 'file:///C:/Users/%E6%9F%B4%E5%B0%91%E5%AE%87/Desktop/%E6%9C%AB%E7%8F%AD/6.24%E6%B8%B2%E6%9F%93%E4%BA%AC%E4%B8%9C/img/2.png', zi: '魅族17 8GB+256GB松深入墨骁龙865旗舰5G手机30W快充6400W后置主摄90Hz...', jia: 1671 },
+        { tu: 'file:///C:/Users/%E6%9F%B4%E5%B0%91%E5%AE%87/Desktop/%E6%9C%AB%E7%8F%AD/6.24%E6%B8%B2%E6%9F%93%E4%BA%AC%E4%B8%9C/img/3.png', zi: '魅族17 8GB+256GB松深入墨骁龙865旗舰5G手机30W快充6400W后置主摄90Hz...', jia: 499.9 },
+        { tu: 'file:///C:/Users/%E6%9F%B4%E5%B0%91%E5%AE%87/Desktop/%E6%9C%AB%E7%8F%AD/6.24%E6%B8%B2%E6%9F%93%E4%BA%AC%E4%B8%9C/img/4.png', zi: '魅族17 8GB+256GB松深入墨骁龙865旗舰5G手机30W快充6400W后置主摄90Hz...', jia: 149.59 },
+        { tu: 'file:///C:/Users/%E6%9F%B4%E5%B0%91%E5%AE%87/Desktop/%E6%9C%AB%E7%8F%AD/6.24%E6%B8%B2%E6%9F%93%E4%BA%AC%E4%B8%9C/img/5.png', zi: '魅族17 8GB+256GB松深入墨骁龙865旗舰5G手机30W快充6400W后置主摄90Hz...', jia: 4699 },
+        { tu: 'file:///C:/Users/%E6%9F%B4%E5%B0%91%E5%AE%87/Desktop/%E6%9C%AB%E7%8F%AD/6.24%E6%B8%B2%E6%9F%93%E4%BA%AC%E4%B8%9C/img/6.png', zi: '魅族17 8GB+256GB松深入墨骁龙865旗舰5G手机30W快充6400W后置主摄90Hz...', jia: 1671 },
+        { tu: 'file:///C:/Users/%E6%9F%B4%E5%B0%91%E5%AE%87/Desktop/%E6%9C%AB%E7%8F%AD/6.24%E6%B8%B2%E6%9F%93%E4%BA%AC%E4%B8%9C/img/7.png', zi: '魅族17 8GB+256GB松深入墨骁龙865旗舰5G手机30W快充6400W后置主摄90Hz...', jia: 499.8 },
+        { tu: 'file:///C:/Users/%E6%9F%B4%E5%B0%91%E5%AE%87/Desktop/%E6%9C%AB%E7%8F%AD/6.24%E6%B8%B2%E6%9F%93%E4%BA%AC%E4%B8%9C/img/8.png', zi: '魅族17 8GB+256GB松深入墨骁龙865旗舰5G手机30W快充6400W后置主摄90Hz...', jia: 158.52 },]
+    box.innerHTML = arr.map((item, index) => {
+        return `
+         <div class="a"><dl>
+                <dt class="dt"><img id="img" src="${item.tu}" alt=""></dt>
+                <dd class="dd1">${item.zi}</dd>
+                <dd class="dd2">
+                    <span class="q1">¥</span>
+                    <span class="q2">${(item.jia + '').slice(0, (item.jia + "").indexOf('.'))}</span>
+                    <span class="q3">${item.jia % 1 == 0 ? '.00' : (item.jia + '').slice((item.jia + "").indexOf('.') + 1) < 10 ? (item.jia + '').slice((item.jia + "").indexOf('.')) + '0' : (item.jia + '').slice((item.jia + "").indexOf('.'))}</span>
+                </dd>
+            </dl>
+                 <div class="b"><div class='yan'>
+                    <div class="b1" id='${index}'>
+                        <svg t="1656050839606" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2233" width="16" height="16"><path d="M512 832c-156.448 0-296.021333-98.730667-418.410667-291.605333a52.938667 52.938667 0 0 1 0-56.789334C215.978667 290.730667 355.552 192 512 192c156.448 0 296.021333 98.730667 418.410667 291.605333a52.938667 52.938667 0 0 1 0 56.789334C808.021333 733.269333 668.448 832 512 832z m0-576c-129.514667 0-249.461333 83.850667-360.117333 256C262.538667 684.149333 382.485333 768 512 768c129.514667 0 249.461333-83.850667 360.117333-256C761.461333 339.850667 641.514667 256 512 256z m0 405.333333c-83.210667 0-150.666667-66.858667-150.666667-149.333333S428.789333 362.666667 512 362.666667s150.666667 66.858667 150.666667 149.333333S595.210667 661.333333 512 661.333333z m0-64c47.552 0 86.101333-38.208 86.101333-85.333333S559.552 426.666667 512 426.666667c-47.552 0-86.101333 38.208-86.101333 85.333333s38.549333 85.333333 86.101333 85.333333z" p-id="2234" fill="#ffffff"></path></svg>  找相似</div>
+                    </div>
+                    </div>
+                    <div class='a1' id='${index}'></div>
+            </div>
+            `
+    }).join('')
+    //滑过
+    let b = document.querySelectorAll('.b')
+    let b1 = document.querySelectorAll('.b1')
+    let a1 = document.querySelectorAll('.a1')
+    box.onmouseover = function (e) {
+        let t = e.target
+        if (t.className == 'a1' || t.className == 'b1') {
+            b[t.id].style.display = 'block'
+        }
+        if (t.className == 'b1') {
+            // console.log(t.id);
+            b1[t.id].style.background = 'red'
+        }
+    }
+    box.onmouseout = function (e) {
+        let t = e.target
+        if (t.className == 'a1') {
+            b.forEach(item => {
+                item.style.display = 'none'
+            })
+        }
+        if (t.className == 'b1') {
+            b1.forEach(item => {
+                item.style.background = 'black'
+            })
+        }
+    }
+
+</script>
+
+</html>
